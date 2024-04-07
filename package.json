@@ -1,0 +1,23 @@
+{
+  "name": "trench-run-high-scores",
+  "version": "1.0.0",
+  "description": "high scores server for trench run game",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/queenkjuul/trench-run-high-scores.git"
+  },
+  "author": "queenkjuul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/queenkjuul/trench-run-high-scores/issues"
+  },
+  "homepage": "https://github.com/queenkjuul/trench-run-high-scores#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-json-db": "^2.3.0"
+  }
+}
