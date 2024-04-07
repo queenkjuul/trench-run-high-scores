@@ -10,8 +10,9 @@ initDb()
 app.use(express.json())
 
 app.get("/scores", async (req, res) => {
+  console.log(req)
   db.getData("/scores").then((scores) => {
-    res.send(scores)
+    res.send(scores.sort((a, b) => a.score - b.score))
   })
 })
 
