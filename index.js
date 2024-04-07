@@ -18,11 +18,14 @@ app.get("/scores", async (req, res) => {
 
 app.post("/scores", async (req, res) => {
   console.log(req.body)
-  console.log(req.body.name, req.body.score, req.body.level)
-  db.getData("/scores").then((scores) => {
-    scores.push(req.body)
-    db.push("/scores", scores).then((scores) => res.send(scores))
-  })
+  if (!req?.body?.name || !req?.body?.level || !req?.body?.score) {
+    res.status(400).send("Invalid request")
+  } else {
+    db.getData("/scores").then((scores) => {
+      scores.push(req.body)
+      db.push("/scores", scores).then((scores) => res.send(scores))
+    })
+  }
 })
 
 app.listen(port, () => {
