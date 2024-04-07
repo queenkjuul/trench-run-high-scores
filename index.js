@@ -12,12 +12,13 @@ app.use(express.json())
 app.get("/scores", async (req, res) => {
   console.log(req)
   db.getData("/scores").then((scores) => {
-    res.send(scores.sort((a, b) => a?.score - b?.score))
+    res.send(scores.sort((a, b) => b?.score - a?.score))
   })
 })
 
 app.post("/scores", async (req, res) => {
   console.log(req.body)
+  console.log(req.body.name, req.body.score, req.body.level)
   db.getData("/scores").then((scores) => {
     scores.push(req.body)
     db.push("/scores", scores).then((scores) => res.send(scores))
@@ -33,8 +34,6 @@ async function initDb() {
     await db.getData("/scores")
   } catch (e) {
     console.error(e)
-    await db.push("/scores", [
-      { name: "qkj", score: "1000000", level: "51", date: new Date() },
-    ])
+    await db.push("/scores", [])
   }
 }
