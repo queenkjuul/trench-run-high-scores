@@ -12,7 +12,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get("/scores", async (req, res) => {
-  console.log(req)
+  console.log(req.socket.remoteAddress)
   db.getData("/scores").then((scores) => {
     res.send(scores.sort((a, b) => b?.score - a?.score))
   })
@@ -38,7 +38,6 @@ async function initDb() {
   try {
     await db.getData("/scores")
   } catch (e) {
-    console.error(e)
     await db.push("/scores", [])
   }
 }

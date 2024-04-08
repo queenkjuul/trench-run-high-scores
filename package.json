@@ -4,7 +4,8 @@
   "description": "high scores server for trench run game",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index.js",
+    "prod": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
     "ignore": [
       "trenchHighScores.json"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
