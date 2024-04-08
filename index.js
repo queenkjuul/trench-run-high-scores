@@ -1,5 +1,6 @@
 const { JsonDB, Config } = require("node-json-db")
 const express = require("express")
+const cors = require("cors")
 const app = express()
 const port = 8080
 
@@ -7,6 +8,7 @@ var db = new JsonDB(new Config("trenchHighScores", true, false, "/"))
 
 initDb()
 
+app.use(cors())
 app.use(express.json())
 
 app.get("/scores", async (req, res) => {

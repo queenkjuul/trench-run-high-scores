@@ -17,7 +17,13 @@
   },
   "homepage": "https://github.com/queenkjuul/trench-run-high-scores#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "node-json-db": "^2.3.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "trenchHighScores.json"
+    ]
   }
 }
